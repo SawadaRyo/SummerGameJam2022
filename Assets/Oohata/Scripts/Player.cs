@@ -5,11 +5,15 @@ public class Player : MonoBehaviour
 {
     private const int _Max_jamp_count = 2;
 
-    [SerializeField]
-    private float _force = 250f;
+    [SerializeField] private float _force = 250f;
+    [SerializeField] Transform _centerPos = default;
+    [SerializeField] LayerMask _layerMask = ~0;
 
-    private int _jumpcount = 0;
-    private bool _isJump;
+    bool _isJump;
+    int _jumpCount = 0;
+    float _radius = 0.7f;
+    float _distance = 0.7f;
+
     Rigidbody2D _rb2d;
     void Awake()
     {
@@ -22,7 +26,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         var _jumpkey = Input.GetKeyDown(KeyCode.Space);
-        if (_jumpcount <= _Max_jamp_count && _jumpkey)
+        if (_jumpCount <= _Max_jamp_count && _jumpkey)
         {
             _isJump = true;
         }
@@ -32,14 +36,14 @@ public class Player : MonoBehaviour
     {
         if (_isJump)
         {
-            _jumpcount++;
+            _jumpCount++;
 
-            if (_jumpcount  <= _Max_jamp_count)
+            if (_jumpCount  <= _Max_jamp_count)
             {
                 _rb2d.velocity = Vector2.zero;
                 _rb2d.AddForce(Vector2.up * _force);
             }
-            else if (_jumpcount >= 3)
+            else if (_jumpCount >= 3)
             {
                 _rb2d.gravityScale = 0.5f;
             }
@@ -48,13 +52,19 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    public bool IsWalled()
     {
-        if (other.gameObject.CompareTag("Ground"))
+        Vector2 center = _centerPos.position;
+        bool onWall = Physics2D.CircleCast(center, _radius, Vector2.right, _distance, _layerMask);
+        return onWall;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
         {
             _rb2d.gravityScale = 2;
-            _jumpcount = 0;
+            _jumpCount = 0;
         }
-
     }
 }
