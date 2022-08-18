@@ -16,7 +16,7 @@ public class FallHole : MonoBehaviour
     {
         Vector2 diff = _playerPos - _normalPos;
 
-        //if(diff.magnitude < -4.5 )
+        //if(diff.magnitude < -4.5)
         //{
         //    SceneManager.LoadScene("GameOver");       //穴に落ちたらゲームオーバー
         //}
