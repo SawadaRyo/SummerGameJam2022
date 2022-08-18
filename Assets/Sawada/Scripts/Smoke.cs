@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Smoke : ItemBase
 {
-    float _offSet = 100f;
+    [SerializeField] float _bufValue = 1f;
     public override void ItemEffect()
     {
-        //float distans = 
-        //ProgressUIManager.Instance.ChangeEnemyProgress(-(Time.deltaTime / _offSet));
+        ProgressUIManager.Instance.ChangeEnemyProgress(-_bufValue);
     }
 }
