@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class EnemyController: MonoBehaviour
 {
-    const float OFFSET = 10;
 
-    Vector3 _vector3;
+    Vector3 _enemyPos;
     GameObject _player;
+
+    const float OFFSET = 100;
     const string PLAYER_TAG = "Player";
 
-    //void Start()
-    //{
-    //    _player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
-    //}
+    void Start()
+    {
+        _player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
+    }
 
-    //void Update()
-    //{
-    //    _vector3 = new Vector3(-ProgressManager.Instance.Distance * 100 - _player.transform.position.x, 0f, 0f);
-    //    transform.position = _vector3;
-    //}
+    void Update()
+    {
+        if(ProgressManager.Instance.StartTime >= TimeManager.Instance.Timer)
+        {
+            _enemyPos = new Vector3(-ProgressManager.Instance.Distance * OFFSET + _player.transform.position.x, 0f, 0f);
+            transform.position = _enemyPos;
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(TryGetComponent(out Rigidbody2D rb))
+        if(TryGetComponent(out Transform transform))
         {
-            //PlayerのHPを減らす？処理を書く
+            //プレイヤーのHPを減らす？処理を書く
+            Debug.Log("プレイヤーに当たった");
         }
     }
 }
