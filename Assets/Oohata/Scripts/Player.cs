@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("cube"))
+        if (other.gameObject.CompareTag("Ground"))
         {
             _rb2d.gravityScale = 2;
             _jumpcount = 0;
