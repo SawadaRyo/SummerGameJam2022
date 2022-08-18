@@ -10,6 +10,6 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>
 
     void Update()
     {
-        _timer += Time.deltaTime;
+        _timer += UnityEngine.Time.deltaTime;
     }
 }
