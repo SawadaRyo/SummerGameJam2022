@@ -6,6 +6,6 @@ public class Obstacle : ItemBase
 {
     public override void ItemEffect()
     {
-        ProgressUIManager.Instance.ChangePlayerProgress()
+        //ProgressUIManager.Instance.ChangePlayerProgress()
     }
 }
