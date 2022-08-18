@@ -114,4 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68924900ac418e4bb3f48aee0a00744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debufValue: 1
+  _debufValue: 0.05

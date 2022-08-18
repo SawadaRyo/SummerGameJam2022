@@ -22,6 +22,6 @@ public class GroundMove : MonoBehaviour
     {
         if (_player.IsWalled()) return;
         _time += Time.deltaTime;
-        _rb.velocity = new Vector2(-_moveSpeed * _time, 0f);
+        _rb.velocity = new Vector2(-_moveSpeed , 0f);
     }
 }

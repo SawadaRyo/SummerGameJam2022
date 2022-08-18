@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (IsWalled()) return;
         if (_isJump)
         {
             _jumpCount++;

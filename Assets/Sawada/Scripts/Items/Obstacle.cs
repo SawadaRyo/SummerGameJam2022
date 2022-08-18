@@ -8,6 +8,6 @@ public class Obstacle : ItemBase
     [SerializeField] float _debufValue = 1f;
     public override void ItemEffect()
     {
-        ProgressUIManager.Instance.ChangeEnemyProgress(_debufValue);
+        ProgressUIManager.Instance.ChangePlayerProgress(-_debufValue);
     }
 }
