@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -13,7 +11,6 @@ public class Player : MonoBehaviour
     private int _jumpcount = 0;
     private bool _isJump;
     Rigidbody2D _rb2d;
-    private int _jumpkeycount = 0;
     void Awake()
     {
         _rb2d = GetComponent<Rigidbody2D>();
@@ -46,10 +43,6 @@ public class Player : MonoBehaviour
             {
                 _rb2d.gravityScale = 0.5f;
             }
-            //if(_jumpkeycount == 3 )
-            //{
-            //    _rb2d.gravityScale = 2;
-            //}
 
             _isJump = false;
         }
