@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
+
 public class Ranking : MonoBehaviour
 {
     private int[] _top5 = new int[5] { 0, 0, 0, 0, 0 };
