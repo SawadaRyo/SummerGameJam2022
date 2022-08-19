@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Oohata/TitleScene/TitleScene.unity
+    path: Assets/Oohata/Scene/TitleScene.unity
     guid: 28cb8f775929bc64690a07cc103051ee
   - enabled: 1
     path: Assets/GameScene/GameScene.unity
