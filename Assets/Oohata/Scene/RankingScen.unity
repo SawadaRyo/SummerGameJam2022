@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 1535036136}
   - component: {fileID: 1535036135}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: RankingManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,6 +495,26 @@ PrefabInstance:
     - target: {fileID: 7298398386363016740, guid: 4d7077d3da4935442997468eb24ad13b, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659922729468545199, guid: 4d7077d3da4935442997468eb24ad13b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659922729468545199, guid: 4d7077d3da4935442997468eb24ad13b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: 69278537ccddb2a4ca4c74a031f23f9c, type: 3}
+    - target: {fileID: 8659922729468545199, guid: 4d7077d3da4935442997468eb24ad13b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659922729468545199, guid: 4d7077d3da4935442997468eb24ad13b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659922729468545199, guid: 4d7077d3da4935442997468eb24ad13b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d7077d3da4935442997468eb24ad13b, type: 3}
