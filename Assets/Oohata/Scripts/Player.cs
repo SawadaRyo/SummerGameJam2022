@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
     bool _isJump = false;
     bool _isPause = false;
     int _jumpCount = 0;
-    float _radius = 0.9f;
-    float _distance = 0.9f;
+    float _radius = 0.7f;
+    float _distance = 0.7f;
     Rigidbody2D _rb2d;
     PauseHander _hander;
 
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         _rb2d.gravityScale = 2;
         _isJump = false;
         _hander = GameObject.FindObjectOfType<PauseHander>();
-        
+        //_playerAnimator.SetBool("isGround", true);
     }
 
     void OnEnable()
@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
         {
             _isJump = true;
         }
+
+        
     }
 
     void FixedUpdate()
@@ -62,6 +64,7 @@ public class Player : MonoBehaviour
             else if (_jumpCount >= 3)
             {
                 _rb2d.gravityScale = 0.5f;
+                _playerAnimator.SetBool("isPalg", true);
             }
 
             _isJump = false;
@@ -80,6 +83,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             _playerAnimator.SetBool("isGround", true);
+            _playerAnimator.SetBool("isPalg", false);
             _rb2d.gravityScale = 2;
             _jumpCount = 0;
         }
