@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform _centerPos = default;
     [SerializeField] LayerMask _layerMask = ~0;
 
+    Animator _playerAnimator;
     bool _isJump = false;
     bool _isPause = false;
     int _jumpCount = 0;
@@ -19,10 +20,12 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        _playerAnimator = GetComponent<Animator>();
         _rb2d = GetComponent<Rigidbody2D>();
         _rb2d.gravityScale = 2;
         _isJump = false;
         _hander = GameObject.FindObjectOfType<PauseHander>();
+        _playerAnimator.SetBool("isGround", true);
     }
 
     void OnEnable()
@@ -42,6 +45,8 @@ public class Player : MonoBehaviour
         {
             _isJump = true;
         }
+
+        
     }
 
     void FixedUpdate()
@@ -76,8 +81,17 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            _playerAnimator.SetBool("isGround", true);
             _rb2d.gravityScale = 2;
             _jumpCount = 0;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            _playerAnimator.SetBool("isGround", false);
         }
     }
 
