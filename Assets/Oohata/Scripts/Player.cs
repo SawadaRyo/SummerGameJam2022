@@ -102,10 +102,12 @@ public class Player : MonoBehaviour
         _isPause = isPause;
         if (isPause)
         {
+            _playerAnimator.enabled = false;
             _rb2d.Sleep();
         }
         else
         {
+            _playerAnimator.enabled = true;
             _rb2d.WakeUp();
         }
     }

@@ -12,6 +12,7 @@ public class LoadSceneManager : SingletonMonoBehaviour<LoadSceneManager>
     public void OnCLickButton(string sceneName)
     {
         _fadeImage.enabled = true;
+        if (sceneName == "GameScene") GameManager._sumScore = 0;
         StartCoroutine(Change(sceneName));
     }
 
