@@ -6,9 +6,9 @@ using System.Linq;
 
 public class Ranking : MonoBehaviour
 {
-    private int[] _top5 = new int[5] { 5, 3, 7, 9, 40 };
+    private int[] _top5 = new int[5] { 0, 0, 0, 0, 0 };
     public int _Score = 3;
-    private int count = 0;
+
     [SerializeField]
     Text[] _Rankin;
 
