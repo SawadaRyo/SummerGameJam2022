@@ -20,20 +20,19 @@ public class GroundMove : MonoBehaviour
         _player = GameObject.FindObjectOfType<Player>();
         _hander = GameObject.FindObjectOfType<PauseHander>();
     }
-    private void OnEnable()
+    void OnEnable()
     {
         _hander.PauseAction += PauseRestart;
     }
-    private void OnDisable()
+    void OnDisable()
     {
         _hander.PauseAction -= PauseRestart;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         if (_player.IsWalled()) return;
-        _time += Time.deltaTime;
         _rb.velocity = new Vector2(-_moveSpeed, 0f);
     }
     

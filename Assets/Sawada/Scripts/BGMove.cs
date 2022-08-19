@@ -6,7 +6,12 @@ public class BGMove : GroundMove
 {
     [SerializeField] Transform _basePos = default;
     [SerializeField] Transform _setPos = default;
-    
+
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        ResetPos();
+    }
     void ResetPos()
     {
         float posX = this.transform.position.x;
