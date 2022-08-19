@@ -20,8 +20,15 @@ public class GroundMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (_player.IsWalled()) return;
-        _time += Time.deltaTime;
-        _rb.velocity = new Vector2(-_moveSpeed , 0f);
+        
+    }
+    void Move(bool isGame)
+    {
+        if(isGame)
+        {
+            if (_player.IsWalled()) return;
+            _time += Time.deltaTime;
+            _rb.velocity = new Vector2(-_moveSpeed, 0f);
+        }
     }
 }
