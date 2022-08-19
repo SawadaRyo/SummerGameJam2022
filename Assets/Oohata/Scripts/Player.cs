@@ -9,19 +9,31 @@ public class Player : MonoBehaviour
     [SerializeField] Transform _centerPos = default;
     [SerializeField] LayerMask _layerMask = ~0;
 
-    bool _isJump;
+    bool _isJump = false;
+    bool _isPause = false;
     int _jumpCount = 0;
     float _radius = 0.7f;
     float _distance = 0.7f;
-
     Rigidbody2D _rb2d;
+    PauseHander _hander;
+
     void Awake()
     {
         _rb2d = GetComponent<Rigidbody2D>();
         _rb2d.gravityScale = 2;
         _isJump = false;
+        _hander = GameObject.FindObjectOfType<PauseHander>();
     }
 
+    void OnEnable()
+    {
+        _hander.PauseAction += PauseRestart;
+    }
+
+    void OnDisable()
+    {
+        _hander.PauseAction -= PauseRestart;
+    }
 
     void Update()
     {
@@ -35,11 +47,11 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         if (IsWalled()) return;
-        if (_isJump)
+        if (_isJump && !_isPause)
         {
             _jumpCount++;
 
-            if (_jumpCount  <= _Max_jamp_count)
+            if (_jumpCount <= _Max_jamp_count)
             {
                 _rb2d.velocity = Vector2.zero;
                 _rb2d.AddForce(Vector2.up * _force);
@@ -59,13 +71,26 @@ public class Player : MonoBehaviour
         bool onWall = Physics2D.CircleCast(center, _radius, Vector2.right, _distance, _layerMask);
         return onWall;
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             _rb2d.gravityScale = 2;
             _jumpCount = 0;
+        }
+    }
+
+    void PauseRestart(bool isPause)
+    {
+        _isPause = isPause;
+        if (isPause)
+        {
+            _rb2d.Sleep();
+        }
+        else
+        {
+            _rb2d.WakeUp();
         }
     }
 }

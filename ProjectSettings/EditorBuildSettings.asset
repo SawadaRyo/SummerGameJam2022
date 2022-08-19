@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Oohata/TitleScene/TitleScene.unity
+    guid: 28cb8f775929bc64690a07cc103051ee
+  - enabled: 1
+    path: Assets/GameScene/GameScene.unity
+    guid: 2149a21b08b997d4f8198ec747d54bf2
+  - enabled: 1
+    path: Assets/Oomiya/Scene/GameOverScene.unity
+    guid: 16eceb96ab75f0949b4c99e7a44aec28
+  - enabled: 1
+    path: Assets/Oomiya/Scene/GameClearScene.unity
+    guid: db5ea97ca471fc644acf87a990c80f56
   m_configObjects: {}

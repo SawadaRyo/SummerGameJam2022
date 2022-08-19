@@ -21,21 +21,21 @@ public class ProgressManager : SingletonMonoBehaviour<ProgressManager>
     /// <summary>ポーズ直前のスピード</summary>
     float _beforeSpeed;
     /// <summary>PauseHanderクラスを格納</summary>
-    PauseHander _pauseHander;
+    PauseHander _hander;
 
     const float OFFSET = 100;
 
     private void Awake()
     {
-        _pauseHander = GameObject.FindObjectOfType<PauseHander>();
+        _hander = GameObject.FindObjectOfType<PauseHander>();
     }
     private void OnEnable()
     {
-        _pauseHander.PauseAction += PauseRestart;
+        _hander.PauseAction += PauseRestart;
     }
     private void OnDisable()
     {
-        _pauseHander.PauseAction -= PauseRestart;
+        _hander.PauseAction -= PauseRestart;
     }
     void Update()
     {

@@ -25,4 +25,8 @@ public class PauseHander : MonoBehaviour
         _pauseUI[1].SetActive(isPause);
         PauseAction(isPause);
     }
+    public void IntervalPause(bool isPause)
+    {
+        PauseAction(isPause);
+    }
 }
