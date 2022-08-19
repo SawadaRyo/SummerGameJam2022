@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        var _jumpkey = Input.GetKeyDown(KeyCode.Space);
+        var _jumpkey = Input.GetMouseButtonDown(0);
         if (_jumpCount <= _Max_jamp_count && _jumpkey)
         {
             _isJump = true;
