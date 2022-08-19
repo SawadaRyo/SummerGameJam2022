@@ -7,8 +7,8 @@ using System.Linq;
 
 public class Ranking : MonoBehaviour
 {
-    private int[] _top5 = new int[5] { 0, 0, 0, 0, 0 };
-    public int _Score = 3;
+    private static int[] _top5 = new int[5] { 0, 0, 0, 0, 0 };
+    public static int _Score = 0;
 
     [SerializeField]
     Text[] _Rankin;
