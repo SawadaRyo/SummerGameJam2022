@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LoadSceneManager : MonoBehaviour
+public class LoadSceneManager : SingletonMonoBehaviour<LoadSceneManager>
 {
     [SerializeField] float _fadeTime = 2.5f;
     [SerializeField] Image _fadeImage = default;
