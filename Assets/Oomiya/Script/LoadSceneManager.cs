@@ -16,6 +16,8 @@ public class LoadSceneManager : SingletonMonoBehaviour<LoadSceneManager>
         StartCoroutine(Change(sceneName));
     }
 
+   
+
     IEnumerator Change(string sceneName)
     {
         while (true)
